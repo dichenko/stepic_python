@@ -1,8 +1,7 @@
-a = []
+def s(a, *vs, b=10):
+   res = a + b
+   for v in vs:
+       res += v
+   return res
 
-def foo(arg1, arg2):
-  a.append("foo")
-
-foo(a.append("arg1"), a.append("arg2"))
-
-print(a)
+print(       s(11, 10, b=10)     )
