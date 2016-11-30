@@ -1,12 +1,35 @@
 class ExtendedStack(list):
     def sum(self):
-        # операция сложения
+        x = self.pop()
+        y = self.pop()
+        self.append(x + y)
 
     def sub(self):
-        # операция вычитания
+        x = self.pop()
+        y = self.pop()
+        self.append(x - y)
 
     def mul(self):
-        # операция умножения
+        x = self.pop()
+        y = self.pop()
+        self.append(x * y)
 
     def div(self):
-        # операция целочисленного деления
+        x = self.pop()
+        y = self.pop()
+        self.append(x // y)
+
+    def printStack(self):
+        for i in range(len(self)-1, -1,-1):
+            print(self[i])
+        print('__________________')
+
+a = ExtendedStack()
+
+a.append(1)
+a.append(3)
+a.append(5)
+a.append(6)
+a.printStack()
+a.sum()
+a.printStack()
