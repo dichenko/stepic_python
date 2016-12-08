@@ -1,5 +1,5 @@
-#k = int(input())
-#n = int(input())
+k = int(input())
+n = int(input())
 
 def refact(k):
     """
@@ -7,28 +7,28 @@ def refact(k):
     :param int k:
     :return: int k
     """
+    #print('_____run refact(', k,')' , end = ' ')
     k = str(k)
     s = ''
-    i = 0
-    while len(k) > 0:
-        if k[i] != k[i+1]:
-            s += '1'
-            s += k[i]
-            k = k[1:]
-            i+=1
-            print('s = ',s)
-        else:
-            counter = 0
-            while k[i] == k[i+1]:
-                counter += 1
+    if len (k) > 1:
+        while len(k) > 0:
+            if len(k) > 1 and k[0] != k[1]:
+                s += '1'
+                s += k[0]
                 k = k[1:]
-            s += str(counter)
-            s += k[i]
-            i += 1
+            else:
+                counter = 0
+                while len(k) > 1 and k[0] == k[1]:
+                    counter += 1
+                    k = k[1:]
+                s += str(counter+1)
+                s += k[0]
+                k = k[1:]
+        #print('s=',s)
+        return int(s)
+    else:
+        return int('1'+str(k))
 
-            print('s = ', s)
-
-    return int(s)
 
 
 def good_ans(k):
@@ -40,18 +40,20 @@ def good_ans(k):
     k = str(k)
     k1 = ''
     for el in k:
-        k1+= el
+        k1 += el
         k1 += ' '
     return k1[:-1]
 
+
 def foo(k,n):
-    if n == 1: return k
+    #print('_____run foo', n, k)
+    if n == 1:
+        return k
     else:
-        for i in range(n):
+        for i in range(1,n):
             k = refact(k)
+
     return good_ans(k)
 
 
-
-
-print(refact(11222555))
+print(foo(k,n))
