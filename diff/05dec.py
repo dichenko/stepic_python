@@ -7,10 +7,9 @@ for i in range(10000000000):
     s = (m.hexdigest())
     if s[:5] == '00000':
         break
-print(line1)
-print(s)
 
 
 
-
+ff = 'abc3231929'
+m.update(ff.encode('utf-8'))
 print (m.hexdigest())
